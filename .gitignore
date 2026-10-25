@@ -1,0 +1,13 @@
+# Pour éviter de push nimp
+
+venv/
+.venv/
+
+
+__pycache__/
+.ipynb_checkpoints/
+
+
+*.csv
+*.parquet
+data/
