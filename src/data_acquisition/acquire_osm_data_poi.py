@@ -25,9 +25,8 @@ out center;
 
 
 # Project paths
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 RAW_DIR = PROJECT_ROOT / "data" / "raw" / "poi"
-RAW_JSON_PATH = RAW_DIR / "paris_poi_raw.json"
 RAW_PARQUET_PATH = RAW_DIR / "paris_poi.parquet"
 USER_AGENT = "AirbnbDataScienceProject"
 
