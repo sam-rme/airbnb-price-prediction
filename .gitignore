@@ -1,19 +1,27 @@
+# Python environment
 .venv/
+venv/
 
 # Python cache
 __pycache__/
 *.py[cod]
 
-# Raw Parquet data
-data/raw/listings.parquet
-data/raw/listings_detailled.parquet
-data/raw/calendar.parquet
-data/raw/reviews.parquet
-data/raw/neighbourhoods.parquet
-
-# Raw OpenStreetMap data
-data/raw/poi/paris_poi.parquet
-
-#Max OS
-.DS_Store
+# Jupyter
 .ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Generated Airbnb data
+data/raw/airbnb/calendar.parquet
+data/raw/airbnb/listings.parquet
+data/raw/airbnb/listings_detailled.parquet
+data/raw/airbnb/neighbourhoods.parquet
+data/raw/airbnb/reviews.parquet
+
+# Generated event data
+data/raw/events/paris_events.parquet
+
+# Generated POI data
+data/raw/poi/paris_poi.parquet
+data/raw/poi/train_station_scnf.parquet

@@ -1,3 +1,8 @@
 pandas
 pyarrow
 requests
+numpy
+matplotlib
+seaborn
+scikit-learn
+jupyter
