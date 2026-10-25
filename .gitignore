@@ -1,0 +1,19 @@
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Raw Parquet data
+data/raw/listings.parquet
+data/raw/listings_detailled.parquet
+data/raw/calendar.parquet
+data/raw/reviews.parquet
+data/raw/neighbourhoods.parquet
+
+# Raw OpenStreetMap data
+data/raw/poi/paris_poi.parquet
+
+#Max OS
+.DS_Store
+.ipynb_checkpoints/
