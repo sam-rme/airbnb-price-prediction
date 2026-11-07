@@ -28,7 +28,6 @@ class ExtracteurAmenities(BaseEstimator, TransformerMixin):
         if 'amenities' in df_temp.columns:
             listes = df_temp['amenities'].apply(self._convertir_en_liste)
             tous_les_items = [item for sous_liste in listes for item in sous_liste]
-            # La variable se termine par "_" -> Scikit-Learn valide le fit
             self.top_amenities_ = [item for item, count in Counter(tous_les_items).most_common(self.top_n)]
         return self
 
@@ -45,8 +44,7 @@ class ExtracteurAmenities(BaseEstimator, TransformerMixin):
 class ImputerAvisAirbnb(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         df_temp = pd.DataFrame(X)
-        self.medianes_ = {} # Variable requise pour valider le fit()
-        
+        self.medianes_ = {} 
         colonnes_scores = [c for c in df_temp.columns if 'review_scores_' in str(c)]
         for col in colonnes_scores:
             self.medianes_[col] = df_temp[col].median()
@@ -61,7 +59,6 @@ class ImputerAvisAirbnb(BaseEstimator, TransformerMixin):
         if 'reviews_per_month' in df_temp.columns:
             df_temp['reviews_per_month'] = df_temp['reviews_per_month'].fillna(0)
             
-        # Application des médianes apprises sur l'entraînement
         for col, med in getattr(self, 'medianes_', {}).items():
             if col in df_temp.columns:
                 df_temp[col] = df_temp[col].fillna(med)
@@ -72,7 +69,6 @@ class ImputerCapacite(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         df_temp = pd.DataFrame(X)
         if 'beds' in df_temp.columns and 'accommodates' in df_temp.columns:
-            # Dictionnaire calculé sur l'entraînement (évite la fuite de données)
             self.lits_par_capacite_ = df_temp.groupby('accommodates')['beds'].median().to_dict()
         return self
 
