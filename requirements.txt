@@ -5,4 +5,6 @@ numpy
 matplotlib
 seaborn
 scikit-learn
+scipy
+tqdm
 jupyter
