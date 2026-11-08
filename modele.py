@@ -9,6 +9,8 @@ from sklearn.metrics import r2_score, mean_absolute_error
 from src.dataprep import charger_et_preparer_donnees
 from src.pipeline import preprocesseur, modeles
 
+from sklearn.inspection import permutation_importance
+
 chemin_base = Path(__file__).parent
 chemin_airbnb = chemin_base / "data" / "raw" / "airbnb"
 chemin_poi = chemin_base / "data" / "raw" / "poi"
@@ -92,7 +94,24 @@ def main():
 
     chemin_modele = chemin_sauvegarde / "modele_airbnb_paris.joblib"
     joblib.dump(meilleur_modele, chemin_modele)
-    print("Modèle sauvegardé dans :", chemin_modele")
+
+    resultats_importance = permutation_importance(
+            meilleur_modele, 
+            X_test, 
+            y_test, 
+            n_repeats=5, 
+            random_state=42, 
+            n_jobs=-1
+        )
+    
+    importances = pd.Series(resultats_importance.importances_mean, index=X_test.columns).sort_values(ascending=False)
+
+    print("Modèle sauvegardé dans :", chemin_modele)
+
+    print("importance des var : ", importances)
+
+    
+
 
 if __name__ == "__main__":
     main()
