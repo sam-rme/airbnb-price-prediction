@@ -18,7 +18,7 @@ Arborescence :
 
 ## Transformateurs
 
-- NettoyeurMaximumNights: On a remarqué pendant l'entraînement que le R2 atteignait des scores très négatifs et on a remarequé que maximum_nights atteignait des valeurs aberrantes au lieu de 365 jours, on l'a plafonné (voire Modeles)
+- NettoyeurMaximumNights: On a remarqué pendant l'entraînement que le R2 atteignait des scores très négatifs et on a remarqué que maximum_nights atteignait des valeurs aberrantes au lieu de 365 jours, on l'a plafonné (voire Modeles)
 - ExtracteurAmenities : Nettoyage et extraction des n / 20 équipements les plus communs sous forme de variable binaire.
 - ImputerCapacite : Remplace les Nan du nombre de lits par la médiane calculée sur le jeu d'entraînement en fonction de la capacité d'accueil accommodate).
 - ImputerAvisAirbnb : On a imputé les scores d'évaluation par la médiane et créer un indicateur binaire a_des_avis pour faire la différence entre les logements non notés de ceux mal notés.
