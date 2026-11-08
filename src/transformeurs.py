@@ -4,6 +4,11 @@ from collections import Counter
 from sklearn.base import BaseEstimator, TransformerMixin
 
 class NettoyeurMaximumNights(BaseEstimator, TransformerMixin):
+    """ 
+    Plafonnement des valeurs aberrantes avec maximum de nuits à 365 jours
+    """
+
+    
     def fit(self, X, y=None):
         return self
 
@@ -14,6 +19,11 @@ class NettoyeurMaximumNights(BaseEstimator, TransformerMixin):
         return df_temp
 
 class ExtracteurAmenities(BaseEstimator, TransformerMixin):
+    """ 
+    Nettoyage et extraction des n / équipements les plus communs sous forme de variable binaire.
+    """
+
+    
     def __init__(self, top_n=20):
         self.top_n = top_n
 
@@ -42,6 +52,11 @@ class ExtracteurAmenities(BaseEstimator, TransformerMixin):
         return df_temp
 
 class ImputerAvisAirbnb(BaseEstimator, TransformerMixin):
+    """
+    Imputations des scores d'évaluation par la médiane et création d'un indicateur binaire a_des_avis ou non
+    """
+
+    
     def fit(self, X, y=None):
         df_temp = pd.DataFrame(X)
         self.medianes_ = {} 
@@ -66,6 +81,10 @@ class ImputerAvisAirbnb(BaseEstimator, TransformerMixin):
         return df_temp
 
 class ImputerCapacite(BaseEstimator, TransformerMixin):
+    """
+    Remplace les Nan du nombre de lits par la médiane calculée sur le jeu d'entraînement en fonction de la capacité d'accueil de la variable accommodate
+    """
+    
     def fit(self, X, y=None):
         df_temp = pd.DataFrame(X)
         if 'beds' in df_temp.columns and 'accommodates' in df_temp.columns:
