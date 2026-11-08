@@ -3,6 +3,11 @@ import numpy as np
 from scipy.spatial import cKDTree
 
 def preparer_listings(chemin_fichier):
+
+    """
+    Sélection des variables pertinentes et traitement sur la target prix et binarisation de superhost
+    """ 
+    
     df = pd.read_parquet(chemin_fichier)
     colonnes_a_garder = [
         'id', 'property_type', 'room_type', 'accommodates', 'bedrooms', 'beds', 'amenities',
@@ -29,6 +34,12 @@ def preparer_listings(chemin_fichier):
     return df
 
 def feature_engineering_calendrier(chemin_fichier):
+
+    """
+    Calcul du taux d'occupation
+    """ 
+
+    
     df_cal = pd.read_parquet(chemin_fichier)
     df_cal['est_dispo'] = (df_cal['available'] == 't').astype(int)
     
@@ -41,6 +52,9 @@ def feature_engineering_calendrier(chemin_fichier):
     return stats[['listing_id', 'taux_occupation']]
 
 def calcul_distance_metro(df_logements, chemin_stations):
+    """
+    Calcul de la distance du logement à la station de métro la plus proche
+    """ 
     df_stations = pd.read_parquet(chemin_stations)
     df_geo = df_logements.dropna(subset=['latitude', 'longitude']).copy()
     
@@ -56,6 +70,11 @@ def calcul_distance_metro(df_logements, chemin_stations):
     return df_logements.merge(df_geo[['id', 'distance_metro_m']], on='id', how='left')
 
 def charger_et_preparer_donnees(chemin_airbnb, chemin_poi):
+
+    """
+    Préparation du dataframe final à partir des traitements précédents
+    """ 
+    
     df_listings = preparer_listings(chemin_airbnb / "listings_detailled.parquet")
     df_calendrier = feature_engineering_calendrier(chemin_airbnb / "calendar.parquet")
 
