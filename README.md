@@ -45,3 +45,8 @@ Les 5 variables qui ont le plus contribué sont :
 3. accommodates et bedrooms : La capacité d'accueil et le nombre de chambres pour des raisons logiques, c'est le m2 qui dicte le prix sur Paris et l'emplacement.
 4. latitude et longitude : De manière logique l'emplacement comme on l'a constaté dans l'EDA (le centre de Paris) .
 5. amenities : La présence d'équipements a bien un impact mesurable mais reste secondaire.
+
+# Utilisation
+
+1. Installer les requirements
+2. Lancer le modele.py (python modele.py)
