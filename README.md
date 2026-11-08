@@ -2,7 +2,7 @@
 
 Ce projet vise à prédire le prix par nuit de logements Airbnb à Paris
 
-Le code a été modularisé pour respecter les bonnes pratiques de développement en Data Science :
+Arborescence :
 
 - dossier data : Avec les données brutes dans raw et les donnés du dataprep.py et le meilleure modèle dans processed.
 - dataprep.py : Script de feature engineering et fusion des données.
