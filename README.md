@@ -34,7 +34,7 @@ Le modèle HistGradientBoosting offre les meilleures performances (MAE le plus b
 
 ## importances variables
 
-On a calculé la le feature importance avec permutation_importance (feature_importance indisponible pour HistGradientBoosting)
+On a calculé la le features importances avec permutation_importance (feature_importance indisponible pour HistGradientBoosting)
 
 Les 5 variables qui ont le plus contribué sont :
 
