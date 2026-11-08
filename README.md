@@ -4,6 +4,7 @@ Ce projet vise à prédire le prix par nuit de logements Airbnb à Paris
 
 Arborescence :
 
+- dossier data_acquisition avec les scripts pour obtenir la donnée
 - dossier data : Avec les données brutes dans raw et les donnés du dataprep.py et le meilleure modèle dans processed.
 - dataprep.py : Script de feature engineering et fusion des données.
 - transformeurs.py : Classes personnalisées pour le nettoyage des variables.
