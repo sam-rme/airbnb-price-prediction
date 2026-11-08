@@ -6,7 +6,7 @@ Arborescence :
 
 - dossier data : Avec les données brutes dans raw et les donnés du dataprep.py et le meilleure modèle dans processed.
 - dataprep.py : Script de feature engineering et fusion des données.
-- transformeurs.py : Classes personnalisées pour le nettoyage spécifique des variables.
+- transformeurs.py : Classes personnalisées pour le nettoyage des variables.
 - pipeline.py : Preprocesseur et GridSearch.
 - modele.py : Execute le tout. (python modele.py sur le bash)
 
