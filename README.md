@@ -4,7 +4,7 @@ Ce projet vise à prédire le prix par nuit de logements Airbnb à Paris
 
 Le code a été modularisé pour respecter les bonnes pratiques de développement en Data Science :
 
-- dossier data : Avec les données brutes (`raw/`), nettoyées/modèles (`processed/`).
+- dossier data : Avec les données brutes dans raw et les donnés du dataprep.py et le meilleure modèle dans processed.
 - dataprep.py : Script de feature engineering et fusion des données.
 - transformeurs.py : Classes personnalisées pour le nettoyage spécifique des variables.
 - pipeline.py : Preprocesseur et GridSearch.
